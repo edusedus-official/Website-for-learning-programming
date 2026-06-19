@@ -1,2 +1,2 @@
 # Website-for-learning-programming
-This is a project created specifically for Hack Club.
+Hi, this project may not be overly ambitious, but it's essential for many beginners. It's a website for learning programming in various languages. This site will make it easier to learn programming syntax in languages ​​like C++ and Phyton. The project is being developed in my spare time, so it might take some time to complete, and I'd also like to focus on the appearance and ease of use of the website. I encourage you to follow the development of my project.
