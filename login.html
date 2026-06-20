@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <title>Login - LearnProgramming.dev</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="card" style="max-width:450px;margin:4rem auto;"
+        <h2>Login</h2>
+        <label>Email</label>
+        <input id="loginEmail" type="email">
+        <label>Password</label>
+        <input id="loginPass" type="password">
+        <button class="btn-primary" onclick="loginUser()">login</button>
+        <p style="margin-top:0.5rem;">
+            <a href="register.html">Create a new account</a><br>
+            <a href="#" onclick="alert('Contact the administrator')">I don’t remember my password</a>
+        </p>
+        <p id="loginStatus"></p>
+    </div>
+    <script src="auth.js"></script>
+    </body>
+</html>
