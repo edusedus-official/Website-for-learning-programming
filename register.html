@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UFT-8">
-        <title>Register - LearnProgramming.dev</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+<script src="auth.js" defer></script>
+<script src="lang.js" defer></script>
+</head>
 <body>
-    <div class="card" style="max-width: 450px;margin: 4rem auto;"
-    <h2>New account</h2>
-    <label>Name</label>
-    <input id="regName" type="text">
-    <label>Email</label>
-    <input id="regEmail" type="email">
-    <label>Password</label>
-    <input id="regPass" type="password">
-    <button class="btn btn-primary" onclick="registerUser()">Create new account</button>
-    <p id="regStatus"></p>
+<header>
+  <nav class="nav">
+    <div class="logo">LearnProgramming.dev</div>
+    <div>
+      <span class="lang-switch" onclick="setLang('pl')">🇵🇱</span>
+      <span class="lang-switch" onclick="setLang('en')">🇬🇧</span>
+      <button onclick="toggleTheme()" class="btn-secondary" style="padding:0.3rem 0.8rem;">🌓</button>
+      <a id="authLink" href="login.html" data-t="login">Login</a>
+    </div>
+  </nav>
+</header>
+<div class="card" style="margin-top:3rem;">
+  <h2 data-t="create_account">Create new account</h2>
+  <div id="regTooltip"></div>
+  <label data-t="name">Name</label>
+  <input id="regName" type="text">
+  <label data-t="email">Email</label>
+  <input id="regEmail" type="email">
+  <label data-t="password">Password</label>
+  <input id="regPass" type="password">
+  <button class="btn btn-primary" onclick="registerUser()" data-t="create_account">Create new account</button>
 </div>
-<script src="auth.js"></script>
+<footer>
+  <p>© 2026 LearnProgramming.dev — <span data-t="terms">Terms & Conditions</span></p>
+</footer>
 </body>
 </html>

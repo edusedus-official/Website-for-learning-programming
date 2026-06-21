@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lesson</title>
+<link rel="stylesheet" href="style.css">
+<script src="auth.js" defer></script>
+<script src="lang.js" defer></script>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="logo">LearnProgramming.dev</div>
+    <div>
+      <span class="lang-switch" onclick="setLang('pl')">🇵🇱</span>
+      <span class="lang-switch" onclick="setLang('en')">🇬🇧</span>
+      <button onclick="toggleTheme()" class="btn-secondary" style="padding:0.3rem 0.8rem;">🌓</button>
+      <a href="panel.html" data-t="back_panel">Back to panel</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="lesson-container">
+    <h2 id="lessonTitle">Lesson</h2>
+
+    <div id="lessonContent"></div>
+
+    <div id="lessonActions" style="margin-top:1.5rem;"></div>
+
+    <div id="lessonTooltip" style="margin-top:1rem;"></div>
+  </div>
+</main>
+<footer>
+  <p>© 2026 LearnProgramming.dev — <span data-t="terms">Terms & Conditions</span></p>
+</footer>
+<script>
+  function getParam(name){
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+  function setLesson(id){
+    const title = document.getElementById("lessonTitle");
+    const content = document.getElementById("lessonContent");
+    const actions = document.getElementById("lessonActions");
+
+    actions.innerHTML = "";
+    content.innerHTML = "";
+    if(id === "lesson1"){
+      title.textContent = "Python Intro";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Python is a high-level, readable programming language used for web, data, automation and more.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+print("Hello, world!")
+          </div>
+          <p>Try to understand what this code does.</p>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(1)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson2"){
+      title.textContent = "Variables";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Variables store values. In Python you don't need to declare types explicitly.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+name = "Alice"
+age = 20
+print(name, age)
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(2)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson3"){
+      title.textContent = "Data Types";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Basic types: int, float, str, bool, list, dict.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+x = 10       # int
+y = 3.14     # float
+text = "Hi"  # str
+flag = True  # bool
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(3)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson4"){
+      title.textContent = "Lists";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Lists store ordered collections of items.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+numbers = [1, 2, 3]
+numbers.append(4)
+print(numbers)
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(4)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson5"){
+      title.textContent = "Loops";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Loops let you repeat actions.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+for i in range(5):
+    print(i)
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(5)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson6"){
+      title.textContent = "Conditions";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Conditions let you run code only when something is true.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+age = 18
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(6)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson7"){
+      title.textContent = "Functions";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Functions group reusable code.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+def greet(name):
+    return "Hello, " + name
+
+print(greet("Alice"))
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(7)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson8"){
+      title.textContent = "Debugging";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Debugging means finding and fixing errors.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+print("Hellow"
+          </div>
+          <p>Find the error and fix it.</p>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(8)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson9"){
+      title.textContent = "Errors";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Syntax errors and runtime errors are common in Python.</p>
+        </div>
+        <div class="lesson-section">
+          <div class="code-box">
+x = 10
+y = 0
+print(x / y)  # What happens?
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(9)">Mark as completed (+10 XP)</button>
+      `;
+    } else if(id === "lesson10"){
+      title.textContent = "Quiz";
+      content.innerHTML = `
+        <div class="lesson-section">
+          <p>Quick quiz: choose the correct answer.</p>
+        </div>
+        <div class="lesson-section">
+          <p>What does <code>print("Hello")</code> do?</p>
+          <div class="quiz-option" onclick="checkQuiz(1)">
+            It prints text to the screen.
+          </div>
+          <div class="quiz-option" onclick="checkQuiz(2)">
+            It creates a variable.
+          </div>
+          <div class="quiz-option" onclick="checkQuiz(3)">
+            It stops the program.
+          </div>
+        </div>
+      `;
+      actions.innerHTML = `
+        <button class="btn btn-primary" onclick="completeLesson(10)">Finish quiz (+10 XP)</button>
+      `;
+    } else {
+      title.textContent = "Lesson";
+      content.textContent = "Unknown lesson.";
+    }
+  }
+  function completeLesson(num){
+    addXP(10);
+    document.getElementById("lessonTooltip").innerHTML =
+      '<div class="tooltip">Lesson ' + num + ' completed! +10 XP</div>';
+  }
+  function checkQuiz(choice){
+    const options = document.querySelectorAll(".quiz-option");
+    options.forEach(o => o.classList.remove("correct","wrong"));
+    if(choice === 1){
+      options[0].classList.add("correct");
+      addXP(10);
+      unlockAchievement("Quiz completed");
+      document.getElementById("lessonTooltip").innerHTML =
+        '<div class="tooltip">Correct! +10 XP</div>';
+    } else {
+      options[choice-1].classList.add("wrong");
+      document.getElementById("lessonTooltip").innerHTML =
+        '<div class="tooltip">Not correct. Try again.</div>';
+    }
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const id = getParam("id") || "lesson1";
+    setLesson(id);
+  });
+</script>
+</body>
+</html>

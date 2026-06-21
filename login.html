@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UFT-8">
-        <title>Login - LearnProgramming.dev</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="card" style="max-width:450px;margin:4rem auto;"
-        <h2>Login</h2>
-        <label>Email</label>
-        <input id="loginEmail" type="email">
-        <label>Password</label>
-        <input id="loginPass" type="password">
-        <button class="btn btn-primary" onclick="loginUser()">login</button>
-        <p style="margin-top:0.5rem;">
-            <a href="register.html">Create a new account</a><br>
-            <a href="#" onclick="alert('Contact the administrator')">I don’t remember my password</a>
-        </p>
-        <p id="loginStatus"></p>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+<script src="auth.js" defer></script>
+<script src="lang.js" defer></script>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="logo">LearnProgramming.dev</div>
+    <div>
+      <span class="lang-switch" onclick="setLang('pl')">🇵🇱</span>
+      <span class="lang-switch" onclick="setLang('en')">🇬🇧</span>
+      <button onclick="toggleTheme()" class="btn-secondary" style="padding:0.3rem 0.8rem;">🌓</button>
+      <a id="authLink" href="login.html" data-t="login">Login</a>
     </div>
-    <script src="auth.js"></script>
-    </body>
+  </nav>
+</header>
+<div class="card">
+  <h2 data-t="login">Login</h2>
+  <div id="loginTooltip"></div>
+  <label data-t="email">Email</label>
+  <input id="loginEmail" type="email">
+  <label data-t="password">Password</label>
+  <input id="loginPass" type="password">
+  <button class="btn btn-primary" onclick="loginUser()" data-t="login">Login</button>
+  <p style="margin-top:0.5rem;">
+    <a href="register.html" data-t="create_account">Create a new account</a><br>
+    <a href="#" onclick="alert('Reset not implemented')" data-t="forgot">I don’t remember my password</a>
+  </p>
+</div>
+<footer>
+  <p>© 2026 LearnProgramming.dev — <span data-t="terms">Terms & Conditions</span></p>
+</footer>
+</body>
 </html>
